@@ -11,7 +11,7 @@ print('My public IP address is: {}'.format(ip))
 @app.get("/")
 
 def read_root():
-    return {"Hello": "Researcher!", "time": datetime.datetime.now().strftime('%d/%h/%y'), "your public ip is:":(ip)}
+    return {"Hello": "Researcher!", "Date": datetime.datetime.now().strftime('%d/%h/%y'), "your public ip is:":(ip)}
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
