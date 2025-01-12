@@ -1,4 +1,8 @@
 import requests
+import this
+
+url = 'https://jsonplaceholder.typicode.com/todos'
+
 
 def get_json_from_url(url):
     try:
@@ -8,17 +12,13 @@ def get_json_from_url(url):
     except requests.exceptions.HTTPError as http_err:
         print(f'HTTP error occurred: {http_err}')  # Ошибка HTTP
     except Exception as err:
-        print(f'Other error occurred: {err}')  # Остальные ошибки
-
+        print(f'Other error occurred: {err}')  # Остальные
 def extract_data_by_key(json_data, key):
-    return json_data.get(key, 'Ключ не найден')  # Извлечение данных по ключу
+    return json_data.get(key, 'Ключ не найден')
 
-# Пример использования
-url = 'https://api.example.com/data.json'
 data = get_json_from_url(url)
-
+print(data)
 if data:
-    # Извлекаем данные по нужному ключу
-    key = 'desired_key'  # Замените на ваш ключ
+    key = 'n'
     extracted_data = extract_data_by_key(data, key)
     print(extracted_data)
